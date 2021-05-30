@@ -1,15 +1,16 @@
 <h2 class="country-name">{{name}}</h2>
-<div class="container">
+<div class="card-container">
     <div class="info-container">
-        <ul class="about-country">
-            <li class="about">Capital:</li>
-            <li class="about">Population:</li>
-            <li class="about">Language:</li>
-            <ul class="languages">
-                {{#each languages}}
-                <li>{{name}}</li>
-                {{/each}}
-            </ul>
+        <ul class="country-info">
+            <li><span class="accent">Capital:</span> {{capital}}</li>
+            <li><span class="accent">Population:</span> {{population}}</li>
+            <li><span class="accent">Languages:</span>
+                <ul class="languages-list">
+                    {{#each languages}}
+                    <li>{{name}}</li>
+                    {{/each}}
+                </ul>
+            </li>
         </ul>
     </div>
     <div class="country-flag">
