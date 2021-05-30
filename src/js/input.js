@@ -1,6 +1,7 @@
-import { moreSymbols, yeah, error } from '@pnotify/core';
+import { info, success, error } from '@pnotify/core';
 import "@pnotify/core/dist/PNotify.css";
 import "@pnotify/core/dist/BrightTheme.css";
+
 
 export function warningMessage() {
     const infoError = error({
@@ -17,14 +18,14 @@ export function errorMessage() {
 };
 
 export function moreSymbolsMessage() {
-    const infoMoreSymbols = moreSymbols({
+    const infoMoreSymbols = info({
         text: "Please enter more unique symbols",
         delay: 1000,
     });
 };
 
 export function yeahMessage() {
-    const ingoYeah = yeah({
+    const infoYeah = success({
         text: "YEAH, success request",
         delay: 1000,
     });

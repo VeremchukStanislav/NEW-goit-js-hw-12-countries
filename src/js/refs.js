@@ -1,4 +1,4 @@
 export default {
-    body_card: document.querySelector('.body-card'),
-    // searchInput: document.querySelector('input'),
+    card: document.querySelector('.card'),
+    searchInput: document.querySelector('input'),
 }
