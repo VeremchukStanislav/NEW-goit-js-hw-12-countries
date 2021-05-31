@@ -9,21 +9,24 @@ const _ = require('lodash.debounce');
 
 refs.searchInput.addEventListener('input', _(onSearch, 500));
 
-
 function onSearch(e) {
-    API.fetchCountries(e.target.value)
-        .then(dataProcessing)
-        .catch(error => {
-            removeMarkup();
-            errorMessage();
-        });
-}
+    e.preventDefault();
+    const searchName = e.target.value;
+    const searchNameValid = searchName.trim()
+    if (searchNameValid) {
+        API.fetchCountries(searchName).then(dataProcessing)
+            .catch(error => {
+                removeMarkup();
+                errorMessage();
+            });
+    };
+};
 
 function dataProcessing(country) {
     removeMarkup()
     if (country.length > 10) {
         warningMessage();
-    } else if (country.length >= 2) {
+    } else if (country.length >= 2 && country.length <=10) {
         renderCountryList(country);
         moreSymbolsMessage();
     } else {
