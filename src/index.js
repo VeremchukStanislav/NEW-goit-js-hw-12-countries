@@ -11,16 +11,19 @@ refs.searchInput.addEventListener('input', _(onSearch, 500));
 
 function onSearch(e) {
     e.preventDefault();
-    const searchName = e.target.value;
-    const searchNameValid = searchName.trim()
-    if (searchNameValid) {
-        API.fetchCountries(searchName).then(dataProcessing)
-            .catch(error => {
-                removeMarkup();
-                errorMessage();
-            });
-    };
-};
+    const searchName = e.target.value.trim();
+    
+    if (!searchName) {
+        return;
+    }
+    
+    API.fetchCountries(searchName)
+        .then(dataProcessing)
+        .catch(error => {
+            removeMarkup();
+            errorMessage();
+        });
+}
 
 function dataProcessing(country) {
     removeMarkup()
